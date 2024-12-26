@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patent Your Invention Workshop</title>
+  <!--
+Authors:
+1. Sujay V Kulkarni
+   - Portfolio: bit.ly/sujayvitae
+   - GitHub: https://github.com/SujayKulkarni-2211
+   - LinkedIn: https://www.linkedin.com/in/sujay-kulkarni-51391b286/
+2. Deepti Jain
+   - LinkedIn: https://www.linkedin.com/in/deepti-jain-0319662b0/
+
+Project Links:
+- GitHub Repository: https://github.com/yourusername/projectname
+- Website: https://yourwebsite.com
+
+Created: December 2024
+-->
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+<link rel="manifest" href="favicon_io/site.webmanifest">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-50">
+  <!-- Navbar -->
+  <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md shadow-sm">
+    <div class="container mx-auto px-2 py-2">
+      <div class="flex justify-between items-center">
+        <div class="flex items-center space-x-4">
+          <img src="images/logo.png" alt="Logo" class="h-10 w-10 rounded-lg">
+          <span class="font-bold text-xl text-[#000f49] whitespace-nowrap">Patent Your Invention</span>
+        </div>
+  
+        <button id="menu-btn" class="md:hidden text-gray-600 hover:text-[#000f49] focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path class="hamburger" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            <path class="close hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+  
+        <div class="hidden md:flex items-center space-x-4">
+          <div class="relative">
+            <button id="aboutBtn" class="flex items-center text-gray-600 hover:text-[#000f49] transition-colors whitespace-nowrap">
+              About
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div id="aboutDropdown" class="absolute left-0 top-full mt-1 hidden flex-col bg-white shadow-lg rounded-lg w-48 z-50">
+              <a href="#about-workshop" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">About Workshop</a>
+              <a href="#trainers" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Trainers</a>
+              <a href="#prizes" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Prizes</a>
+              <a href="#faq" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">FAQ</a>
+            </div>
+          </div>
+          <a href="#schedule" class="text-gray-600 hover:text-[#000f49] transition-colors whitespace-nowrap">Schedule</a>
+          <a href="#reach" class="text-gray-600 hover:text-[#000f49] transition-colors whitespace-nowrap">Navigate</a>
+          <a href="https://drive.google.com/drive/folders/1MjfDjmjtdGTC62lHdGKk_d2ZAd1F1kC4" class="text-gray-600 hover:text-[#000f49] transition-colors whitespace-nowrap" target="_blank">Session Overview</a>
+          <a href="#contact" class="text-gray-600 hover:text-[#000f49] transition-colors whitespace-nowrap">Contact</a>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdrw6YegzT9LUWA4hNKwk46bpQf8cyaxucXFQF3HhgKEoqJSg/viewform" class="bg-[#000f49] text-white px-6 py-2 rounded-lg hover:bg-[#1a237e] transition-colors whitespace-nowrap" target="_blank">Register Now</a>
+        </div>
+  
+        <div id="mobile-menu" class="fixed inset-0 bg-gray-800 bg-opacity-50 hidden">
+          <div class="bg-white w-64 min-h-screen ml-auto py-4 px-6">
+            <div class="flex flex-col space-y-4">
+              <button id="mobileAboutBtn" class="text-left text-gray-600 hover:text-[#000f49] flex items-center justify-between">
+                About
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </button>
+              <div id="mobileAboutDropdown" class="hidden pl-4 flex flex-col space-y-2">
+                <a href="#about-workshop" class="text-gray-600 hover:text-[#000f49]">About Workshop</a>
+                <a href="#trainers" class="text-gray-600 hover:text-[#000f49]">Trainers</a>
+                <a href="#prizes" class="text-gray-600 hover:text-[#000f49]">Prizes</a>
+                <a href="#faq" class="text-gray-600 hover:text-[#000f49]">FAQ</a>
+              </div>
+              <a href="#schedule" class="text-gray-600 hover:text-[#000f49]">Schedule</a>
+              <a href="#reach" class="text-gray-600 hover:text-[#000f49]">Navigate</a>
+              <a href="https://drive.google.com/drive/folders/1MjfDjmjtdGTC62lHdGKk_d2ZAd1F1kC4" class="text-gray-600 hover:text-[#000f49]" target="_blank">Session Overview</a>
+              <a href="#contact" class="text-gray-600 hover:text-[#000f49]">Contact</a>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSdrw6YegzT9LUWA4hNKwk46bpQf8cyaxucXFQF3HhgKEoqJSg/viewform" class="bg-[#000f49] text-white px-6 py-2 rounded-lg hover:bg-[#1a237e] text-center" target="_blank">Register Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- Hero Section -->
+  <section class="hero-gradient min-h-screen flex items-center pt-20">
+    <div class="container mx-auto px-6 py-12">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="text-white space-y-6">
+          <h1 class="text-5xl font-bold leading-tight">Transform Your Ideas into Patents</h1>
+          <p class="text-xl text-gray-200">Join India's first Invention Capture & Patenting Hackathon. Learn to draft and file patents under expert guidance in just 3 days.</p>
+          <div class="flex space-x-4">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdrw6YegzT9LUWA4hNKwk46bpQf8cyaxucXFQF3HhgKEoqJSg/viewform" class="bg-white text-[#000f49] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors" target="_blank">
+              Register Now
+            </a>
+            <a href="images/RVU X BVB Patent your invention_brochure.pdf" class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors" target="_blank">
+              Learn More
+            </a>
+           
+          </div>
+          <div class="flex items-center space-x-4 pt-6">
+            <div class="flex -space-x-2">
+              <img src="images/user1.jpg" alt="User" class="w-10 h-10 rounded-full border-2 border-white">
+              <img src="images/user2.jpg" alt="User" class="w-10 h-10 rounded-full border-2 border-white">
+              <img src="images/user3.jpg" alt="User" class="w-10 h-10 rounded-full border-2 border-white">
+            </div>
+            <p class="text-sm text-gray-200">Join 500+ innovators who've already registered</p>
+          </div>
+        </div>
+        <div class="hidden md:block">
+          <img src="images/phanisir2.JPG" alt="Hero" class="rounded-lg shadow-2xl">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- "Why Join Our Workshop" Section -->
+<section id="about" class="py-20 bg-gray-50">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-bold text-[#000f49]">Why Join Our Workshop?</h2>
+      <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Learn from industry experts and transform your innovative ideas into valuable intellectual property.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- Card 1 -->
+      <div class="p-6 bg-white rounded-xl shadow-lg card-hover">
+        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+          <svg class="w-6 h-6 text-[#000f49]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold mb-2">Expert Mentors</h3>
+        <p class="text-gray-600">Learn from seasoned patent professionals and innovators with years of experience in the field.</p>
+      </div>
+      <!-- Card 2 -->
+      <div class="p-6 bg-white rounded-xl shadow-lg card-hover">
+        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+          <svg class="w-6 h-6 text-[#000f49]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold mb-2">Hands-on Learning</h3>
+        <p class="text-gray-600">Get a practical understanding of patent drafting and filing with step-by-step guidance.</p>
+      </div>
+      <!-- Card 3 -->
+      <div class="p-6 bg-white rounded-xl shadow-lg card-hover">
+        <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mb-4">
+          <svg class="w-6 h-6 text-[#000f49]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold mb-2">Exciting Prizes</h3>
+        <p class="text-gray-600">Stand a chance to win prizes worth up to ₹90,000 and gain global recognition.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about-workshop" class="py-20 bg-[#fcf1e9]">
+  <div class="container mx-auto">
+
+    <!-- About the Workshop -->
+    <div class="text-center mb-12">
+      <h2 class="text-4xl font-bold text-[#000f49]">About the Workshop</h2>
+      <p class="leading-relaxed text-lg mt-4">
+        Welcome to the world’s first "Invention Capture & Patenting Hackathon," a unique 3-day event to help participants learn to draft and file patents under expert guidance. Innovators, startups, researchers, and students will be trained to transform ideas into provisional patents, gain knowledge about funding opportunities, and understand the economic significance of their inventions.
+      </p>
+    </div>
+
+    <!-- Trainers Section -->
+    <div class="mb-16" id="trainers">
+      <h3 class="text-3xl font-bold text-[#000f49] mb-12 text-center">Meet Our Mentors</h3>
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Trainer 1 -->
+        <div class="p-6 bg-gray-100 rounded-lg shadow-lg text-center card-hover">
+          <img src="images/pranavbhat.jpg" alt="Adv. Pranav Bhat" class="w-32 h-32 mx-auto rounded-full mb-4">
+          <h4 class="text-2xl font-semibold text-[#000f49]">Adv. Pranav Bhat</h4>
+          <p class="text-gray-600 mt-4">
+            Renowned patent attorney with 15+ years of experience in intellectual property law, helping clients secure global patents.
+          </p>
+          <div class="flex justify-center space-x-4 mt-6">
+            <a href="https://linkedin.com/in/pranavbhat" target="_blank" class="text-blue-600 hover:text-blue-800">
+              <i class="fab fa-linkedin text-2xl"></i>
+            </a>
+            <a href="mailto:pranav.bhat@patents.com" class="text-gray-600 hover:text-gray-800">
+              <i class="fas fa-envelope text-2xl"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Trainer 2 -->
+        <div class="p-6 bg-gray-100 rounded-lg shadow-lg text-center card-hover">
+          <img src="images/phanisir.png" alt="Dr. Phani Kumar Pullela" class="w-32 h-32 mx-auto rounded-full mb-4">
+          <h4 class="text-2xl font-semibold text-[#000f49]">Dr. Phani Kumar Pullela</h4>
+          <p class="text-gray-600 mt-4">
+            Inventor and researcher specializing in deep tech patents, AI/ML, and healthcare innovations. Authored 200+ patents globally.
+          </p>
+          <div class="flex justify-center space-x-4 mt-6">
+            <a href="https://linkedin.com/in/phani-pullela" target="_blank" class="text-blue-600 hover:text-blue-800">
+              <i class="fab fa-linkedin text-2xl"></i>
+            </a>
+            <a href="mailto:phani.pullela@research.com" class="text-gray-600 hover:text-gray-800">
+              <i class="fas fa-envelope text-2xl"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Trainer 3 -->
+        <div class="p-6 bg-gray-100 rounded-lg shadow-lg text-center card-hover">
+          <img src="images/aminsharan.jpg" alt="Adv. Amin Sharan" class="w-32 h-32 mx-auto rounded-full mb-4">
+          <h4 class="text-2xl font-semibold text-[#000f49]">Adv. Amin Sharan</h4>
+          <p class="text-gray-600 mt-4">
+            Patent attorney with expertise in SaaS, IoT, and Cybersecurity. Guided startups and researchers through the IP process.
+          </p>
+          <div class="flex justify-center space-x-4 mt-6">
+            <a href="https://linkedin.com/in/aminsharan" target="_blank" class="text-blue-600 hover:text-blue-800">
+              <i class="fab fa-linkedin text-2xl"></i>
+            </a>
+            <a href="mailto:amin.sharan@patents.com" class="text-gray-600 hover:text-gray-800">
+              <i class="fas fa-envelope text-2xl"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+      <!-- Prizes Section -->
+    <section id="prizes">
+      <h2 class="text-4xl font-bold mb-8 text-center">Exciting Prizes</h2>
+      <div class="flex flex-col md:flex-row justify-center items-center gap-8">
+        <div class="bg-gradient-to-r from-yellow-400 to-yellow-500 text-[#000f49] p-6 rounded-lg shadow-md w-80">
+          <h3 class="text-2xl font-bold"><span class="material-icons align-middle text-yellow-700">emoji_events</span> 1st Prize</h3>
+          <p class="mt-4">Worth ₹90,000/-</p>
+          <p class="mt-2">Patent drafted and filed by renowned patent agent <strong>Adv. Pranav Bhat</strong>.</p>
+        </div>
+        <div class="bg-gradient-to-r from-gray-400 to-gray-500 text-[#fcf1e9] p-6 rounded-lg shadow-md w-80">
+          <h3 class="text-2xl font-bold"><span class="material-icons align-middle text-gray-300">emoji_events</span> 2nd Prize</h3>
+          <p class="mt-4">Worth ₹60,000/-</p>
+          <p class="mt-2">Patent drafting and support by <strong>Adv. Amin Sharan</strong> and filed by a patent agent.</p>
+        </div>
+        <div class="bg-gradient-to-r from-orange-500 to-orange-600 text-[#fcf1e9] p-6 rounded-lg shadow-md w-80">
+          <h3 class="text-2xl font-bold"><span class="material-icons align-middle text-orange-700">emoji_events</span> 3rd Prize</h3>
+          <p class="mt-4">Worth ₹60,000/-</p>
+          <p class="mt-2">Patent drafted by <strong>Dr. Phani Kumar Pullela</strong> and filed by a patent agent.</p>
+        </div>
+      </div>
+      <p class="text-lg mt-8">Additionally, all participants will receive:</p>
+      <ul class="list-disc list-inside mt-4 text-lg">
+        <li>Provisional Patent Drafting Workbook</li>
+        <li>Course Completion Certificate</li>
+        <li>Medals for every successful participant</li>
+        <li>"Best Drafted Patent" Awards for every vertical (AI/ML/DL, Cyber Security, SaaS, IoT, Healthcare, etc.)</li>
+      </ul>
+      
+    </section>
+    
+    <section id="faq" class="py-20">
+      <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold mb-8 text-center text-[#000f49]">Frequently Asked Questions</h2>
+        <div class="accordion" id="faqAccordion">
+          <!-- FAQ 1 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button">
+                What is the event about?
+              </button>
+            </h2>
+            <div class="accordion-body">
+              A 3-day hackathon to draft and file provisional patents with expert guidance.
+            </div>
+          </div>
+    
+          <!-- FAQ 2 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button">
+                Who can participate?
+              </button>
+            </h2>
+            <div class="accordion-body">
+              Students, startups, industry professionals, and faculty.
+            </div>
+          </div>
+    
+          <!-- FAQ 3 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button">
+                Do I need prior knowledge of patents?
+              </button>
+            </h2>
+            <div class="accordion-body">
+              No, the event is beginner-friendly and guides participants from problem selection to patent drafting.
+            </div>
+          </div>
+    
+          <!-- FAQ 4 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button">
+                What will I learn?
+              </button>
+            </h2>
+            <div class="accordion-body">
+              - Drafting and filing a provisional patent.<br>
+              - Identifying opportunities for funding and licensing.<br>
+              - Basics of innovation protection and startup financing.
+            </div>
+          </div>
+    
+          <!-- FAQ 5 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button">
+                What if I don’t have an invention idea?
+              </button>
+            </h2>
+            <div class="accordion-body">
+              Trainers will guide you through idea generation and problem selection.
+            </div>
+          </div>
+    
+          <!-- FAQ 6 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button">
+                Can I participate as a team?
+              </button>
+            </h2>
+            <div class="accordion-body">
+              Yes, you can join individually or as a team.
+            </div>
+          </div>
+    
+          <!-- FAQ 7 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button">
+                What are the rewards?
+              </button>
+            </h2>
+            <div class="accordion-body">
+              - Provisional patent drafting.<br>
+              - Funding up to ₹2,00,000.<br>
+              - Publication opportunities in global journals.
+            </div>
+          </div>
+    
+          <!-- FAQ 8 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button">
+                What is the fee structure?
+              </button>
+            </h2>
+            <div class="accordion-body">
+              Students: ₹999 (with valid ID card)<br>
+              Startups/Industry: ₹7,999
+            </div>
+          </div>
+    
+          <!-- FAQ 9 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button">
+                Will I get a certificate?
+              </button>
+            </h2>
+            <div class="accordion-body">
+              Yes, all participants receive a completion certificate.
+            </div>
+          </div>
+    
+          <!-- FAQ 10 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button">
+                How will this benefit my startup or research?
+              </button>
+            </h2>
+            <div class="accordion-body">
+              - Helps secure provisional patents to protect ideas.<br>
+              - Facilitates grants, funding, and technology licensing.
+            </div>
+          </div>
+    
+          <!-- FAQ 11 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button">
+                How do I register?
+              </button>
+            </h2>
+            <div class="accordion-body">
+              Scan the registration QR code to complete registration.
+            </div>
+          </div>
+    
+          <!-- FAQ 12 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button">
+                What happens after I file my patent?
+              </button>
+            </h2>
+            <div class="accordion-body">
+              You’ll receive guidance on moving toward a full patent and further commercialization.
+            </div>
+          </div>
+    
+          <!-- FAQ 13 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button">
+                How can I find what will be taught? Can I view any materials?
+              </button>
+            </h2>
+            <div class="accordion-body">
+              You can visit the "Session Overview" section, where all presentations, notes, and other resources will be available. These materials are accessible even after the sessions for review and reference.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    
+    
+    
+    
+  </div>
+</section>
+
+
+
+<section id="schedule" class="py-20 bg-gray-50">
+  <div class="container mx-auto px-6">
+    <h2 class="text-4xl font-bold mb-8 text-center text-[#000f49]">Event Schedule</h2>
+    <div class="timeline">
+      <!-- Day 1 -->
+      <div class="timeline-day">
+        <h3 class="day-title text-2xl font-bold text-[#000f49]">Day 1: December 28 ( R V University)</h3>
+        <div class="timeline-events">
+          <div class="timeline-event">
+            <div class="timeline-icon">
+              <i class="material-icons">access_time</i>
+            </div>
+            <div class="timeline-content">
+              <h4 class="event-time">08:30 AM - 09:00 AM</h4>
+              <p>Check-in</p>
+            </div>
+          </div>
+          <div class="timeline-event">
+            <div class="timeline-icon">
+              <i class="material-icons">lightbulb</i>
+            </div>
+            <div class="timeline-content">
+              <h4 class="event-time">09:00 AM - 11:00 AM</h4>
+              <p>Principles of Design Thinking</p>
+            </div>
+          </div>
+          <div class="timeline-event">
+            <div class="timeline-icon">
+              <i class="material-icons">insights</i>
+            </div>
+            <div class="timeline-content">
+              <h4 class="event-time">11:15 AM - 01:00 PM</h4>
+              <p>Design Thinking, Invention & Innovation</p>
+            </div>
+          </div>
+          <div class="timeline-event">
+            <div class="timeline-icon">
+              <i class="material-icons">quiz</i>
+            </div>
+            <div class="timeline-content">
+              <h4 class="event-time">02:00 PM - 03:00 PM</h4>
+              <p>Intellectual Property Types, Patents & Quiz</p>
+            </div>
+          </div>
+          <div class="timeline-event">
+            <div class="timeline-icon">
+              <i class="material-icons">drafts</i>
+            </div>
+            <div class="timeline-content">
+              <h4 class="event-time">03:15 PM - 05:00 PM</h4>
+              <p>Drafting Societal/Application Patents & Deep Tech Patents</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Day 2 -->
+      <div class="timeline-day">
+        <h3 class="day-title text-2xl font-bold text-[#000f49]">Day 2: December 29 (Bharatiya Vidya Bhavan)</h3>
+        <div class="timeline-events">
+          <div class="timeline-event">
+            <div class="timeline-icon">
+              <i class="material-icons">access_time</i>
+            </div>
+            <div class="timeline-content">
+              <h4 class="event-time">08:30 AM - 09:00 AM</h4>
+              <p>Check-in</p>
+            </div>
+          </div>
+          <div class="timeline-event">
+            <div class="timeline-icon">
+              <i class="material-icons">people</i>
+            </div>
+            <div class="timeline-content">
+              <h4 class="event-time">09:00 AM - 01:00 PM</h4>
+              <p>One-on-one sessions with patent attorneys</p>
+            </div>
+          </div>
+          <div class="timeline-event">
+            <div class="timeline-icon">
+              <i class="material-icons">network_check</i>
+            </div>
+            <div class="timeline-content">
+              <h4 class="event-time">01:00 PM</h4>
+              <p>Networking opportunity</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Day 3 -->
+      <div class="timeline-day">
+        <h3 class="day-title text-2xl font-bold text-[#000f49]">Day 3: December 30 (Bharatiya Vidya Bhavan)</h3>
+        <div class="timeline-events">
+          <div class="timeline-event">
+            <div class="timeline-icon">
+              <i class="material-icons">rule</i>
+            </div>
+            <div class="timeline-content">
+              <h4 class="event-time">04:00 PM - 06:00 PM</h4>
+              <p>Review drafted patents and prize distribution</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="reach" class="py-20 bg-gray-50">
+  <div class="container mx-auto px-6">
+    <h2 class="text-4xl font-bold mb-8 text-center text-[#000f49] flex items-center justify-center">
+      <i class="material-icons text-[#1a237e] mr-2">location_on</i> Navigate
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- RV University -->
+      <div class="location-item">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4864.791334303878!2d77.5008885281084!3d12.90812501483566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae13e3b5ed3f9b%3A0x593d27a3f05137d4!2sRV%20University!5e0!3m2!1sen!2sin!4v1234567890123" 
+          width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        <p class="mt-4 text-gray-600 text-sm">
+          <strong>RV University</strong><br>
+          RV Vidyaniketan Post, Mysuru Road, Bangalore, Karnataka, India - 560059
+        </p>
+      </div>
+
+      <!-- Bharatiya Vidya Bhavan -->
+      <div class="location-item">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3876.824911982286!2d77.58564771480057!3d12.987732390858144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae162cafbe71ed%3A0x52d91e0286743b64!2sBharatiya%20Vidya%20Bhavan!5e0!3m2!1sen!2sin!4v1234567890123" 
+          width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        <p class="mt-4 text-gray-600 text-sm">
+          <strong>Bharatiya Vidya Bhavan</strong><br>
+          Race Course Road, Bangalore, Karnataka, India - 560001
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="py-20">
+  <div class="container mx-auto px-6">
+    <h2 class="text-4xl font-bold mb-8 text-center text-[#000f49] flex items-center justify-center">
+      <i class="material-icons text-[#1a237e] mr-2">perm_contact_calendar</i> Contact Us
+    </h2>
+    <div class="contact-container flex flex-wrap items-center bg-white rounded-lg shadow-lg p-6">
+      <!-- Contact Details -->
+      <div class="contact-details w-full md:w-1/2 pr-6">
+        <div class="flex items-center mb-6">
+          <i class="material-icons text-[#1a237e] text-3xl mr-4">email</i>
+          <a href="mailto:iepd.ecell.rvu@gmail.com" class="text-lg text-[#1a237e] font-medium hover:underline">
+            iepd.ecell.rvu@gmail.com
+          </a>
+        </div>
+        <div class="flex items-center mb-6">
+          <i class="material-icons text-[#1a237e] text-3xl mr-4">camera_alt</i>
+          <a href="https://www.instagram.com/iepd_ecell_rvu" target="_blank" class="text-lg text-[#1a237e] font-medium hover:underline">
+            @iepd_ecell_rvu
+          </a>
+        </div>
+        <div class="flex items-center">
+          <i class="material-icons text-[#1a237e] text-3xl mr-4">phone</i>
+          <div class="text-lg text-[#606060]">
+            <p>+91 91489 20024</p>
+            <p>+91 63615 85650</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Image -->
+      <div class="contact-image w-full md:w-1/2 flex justify-center mt-6 md:mt-0">
+        <img src="images/contact_image.jpg" alt="Contact Us" class="rounded-lg shadow-md hover:scale-105 transition-transform duration-300">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+  <footer class="bg-[#000f49] text-[#fcf1e9] py-6 text-center">
+    <p class="text-lg">&copy; 2024 RV University | All Rights Reserved</p>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="scripts/nav.js"></script>
+  <script src="scripts/accordion.js"></script>
+
+</body>
+</html>
